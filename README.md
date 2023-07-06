@@ -1,6 +1,6 @@
 # id_project
 
-A basic project to practice application
+A basic project to practice flutter application
 
 ## Getting Started
 
