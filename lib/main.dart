@@ -5,9 +5,15 @@ void main() {
     home: Card(),
   ));
 }
-class Card extends StatelessWidget {
+class Card extends StatefulWidget {
   const Card({super.key});
 
+  @override
+  State<Card> createState() => _CardState();
+}
+
+class _CardState extends State<Card> {
+  int level=1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +23,15 @@ class Card extends StatelessWidget {
         backgroundColor: Colors.grey[850],
         centerTitle: true,
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            level+=1;
+          });
+        },
+        child: Icon(Icons.icecream),
+        backgroundColor: Colors.grey[900],
       ),
       body: Padding(padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
       child:Column(
@@ -53,7 +68,7 @@ class Card extends StatelessWidget {
               //Expanded(child: Image.asset("assests/n.jpg",height: 100,))
             ],
           ),
-          
+
           SizedBox(height: 40,),
           Text("Father Name",
             style: TextStyle(
@@ -83,8 +98,25 @@ class Card extends StatelessWidget {
                 fontSize: 20,
                 fontWeight: FontWeight.bold
               ),)
+
             ],
-          )
+          ),
+
+          SizedBox(height: 40,),
+          Text("Level ",
+            style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2
+            ),),
+          SizedBox(height:10),
+          Text("$level",
+            style: TextStyle(
+              color: Colors.amber[200],
+              letterSpacing: 2
+              ,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),),
 
         ],
       )),
